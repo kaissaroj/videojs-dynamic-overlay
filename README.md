@@ -13,7 +13,7 @@ If overlay is manually remove from video dom by inspecting the broser, new funct
 
 If you want to use new added features then install from this:
 ```sh
-npm install --save https://github.com/kaissaroj/videojs-dynamic-overlay/tarball/master
+npm i videojs-dynamic-overlay-updated
 ````
  if not use original package.
  
