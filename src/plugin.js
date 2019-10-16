@@ -9,7 +9,9 @@ const defaults = {
 
 // Cross-compatibility for Video.js 5 and 6.
 const registerPlugin = videojs.registerPlugin || videojs.plugin;
- const dom = videojs.dom || videojs;
+const dom = videojs.dom || videojs;
+var player;
+var options;
 
 /**
  * Function to invoke when the player is ready.
@@ -38,7 +40,10 @@ const randomArea=(element,changeDuration)=>{
     number2=number2-60;
   }
   element.style.top=number2+"px";
-  setTimeout(function(){randomArea(element,changeDuration)},changeDuration);
+  timeoutLoop = setTimeout(function () {
+    randomArea(element, changeDuration);
+    checkAreaExist();
+  }, changeDuration);
 };
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-newoverlay');
@@ -49,6 +54,14 @@ const onPlayerReady = (player, options) => {
     player.el().appendChild(el);
   randomArea(el,options.changeDuration);
 };
+function checkAreaExist(){
+  var dom = document.getElementsByClassName('vjs-emre');
+  console.log(dom);
+  if(typeof dom[0] == 'undefined'){
+    clearTimeout(timeoutLoop);
+    onPlayerReady();
+  }
+}
 
 /**
  * A video.js plugin.
@@ -62,9 +75,11 @@ const onPlayerReady = (player, options) => {
  * @param    {Object} [options={}]
  *           An object of options left to the plugin author to define.
  */
-const newoverlay = function(options) {
-  this.ready(() => {
-    onPlayerReady(this, videojs.mergeOptions(defaults, options));
+var newoverlay = function newoverlay(option) {
+  player = this;
+  options= option;
+  this.ready(function () {
+    onPlayerReady(videojs.mergeOptions());
   });
 };
 
