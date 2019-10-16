@@ -1,6 +1,5 @@
 # videojs-newoverlay
-Dynamic Overlay on Video For Education System
-Video Üzerine Text Vb Dinamik Yer Değiştirme
+Dynamic Overlay on Video 
 
 # Added Features (**new**)
 If overlay is manually remove from video dom by inspecting the broser, new function is added which will check if overlay exist or not if not , it will again inject the overlay dom in video
