@@ -2,12 +2,21 @@
 Dynamic Overlay on Video For Education System
 Video Üzerine Text Vb Dinamik Yer Değiştirme
 
+# Added Features (**new**)
+If overlay is manually remove from video dom by inspecting the broser, new function is added which will check if overlay exist or not if not , it will again inject the overlay dom in video
+
 ## Table of Contents
 
 <!-- START doctoc -->
 <!-- END doctoc -->
 ## Installation
 
+If you want to use new added features then install from this:
+```sh
+npm install --save https://github.com/kaissaroj/videojs-dynamic-overlay/tarball/master
+````
+ if not use original package.
+ 
 ```sh
 npm install --save videojs-dynamic-overlay
 ```
